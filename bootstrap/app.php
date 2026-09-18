@@ -20,6 +20,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'check.subscription' => CheckTenantSubscription::class,
             'auth' => \App\Http\Middleware\Authenticate::class,
             'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+            'checkAccessToken' => \App\Http\Middleware\CheckAccessToken::class,
         ]);
 
         $middleware->group('web', [
