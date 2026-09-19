@@ -58,7 +58,7 @@ class Authenticate extends Middleware
 
             $host = $request->getHost();
 
-            // For web routes, redirect to login
+            // For web routes, redirect to login 
             return redirect()->route('login')->with('message', 'Please log in to access this page.');
         }
 

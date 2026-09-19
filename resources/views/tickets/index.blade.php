@@ -520,8 +520,13 @@ document.addEventListener('DOMContentLoaded', function () {
 |--------------------------------------------------------------------------
 */
 
+async function getToken() {
+    const cookie = await cookieStore.get('access_token');
+    return cookie ? decodeURIComponent(cookie.value) : null;
+}
+
 async function apiRequest(url, options = {}) {
-    const token = localStorage.getItem('api_token');
+    const token = await getToken();
 
     if (!token) {
         window.location.href = '/login';

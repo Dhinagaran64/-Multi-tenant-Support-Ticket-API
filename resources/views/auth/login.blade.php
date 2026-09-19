@@ -154,19 +154,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
             );
         }
 
-        /*
-         * Successful login
-         */
-        if (!result.access_token) {
-            throw new Error('Login successful, but authentication token was not received.');
-        }
-
-        localStorage.setItem('api_token', result.access_token);
-        localStorage.setItem(
-            'user',
-            JSON.stringify(result.user || {})
-        );
-
         window.location.href = '/';
 
     } catch (error) {

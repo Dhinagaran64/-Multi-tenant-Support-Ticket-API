@@ -16,7 +16,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/logout', [AuthApiController::class, 'logout'])->name('logoutApi');
 });
 
-Route::middleware(['auth:sanctum', 'check.tenant', 'check.subscription', 'checkAccessToken'])->group(function () {
+Route::middleware(['auth:sanctum', 'checkAccessToken', 'check.tenant', 'check.subscription'])->group(function () {
 
     // Tickets API
     Route::prefix('tickets')->name('tickets.')->group(function () {
